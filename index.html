@@ -1,0 +1,542 @@
+<title>Pruthvi Engineers &amp; Contractors</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" type="image/png" href="brand/pruthvi-mark-tight.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: "open sky". A full-bleed photo walk-through header (outside → every room) driven by scroll, then airy sections on sky-blue grounds with one big editorial serif. */
+:root {
+  --bg: #f3f9fe;
+  --bg-2: #e2f1fb;
+  --surface: #ffffff;
+  --ink: #0b2235;
+  --muted: #4d6a80;
+  --line: #d2e5f3;
+  --sky: #38b6f0;
+  --accent: #1463c8;      /* Pruthvi logo blue */
+  --accent-ink: #ffffff;
+  --logo: #1463c8;
+  --mk-light: none; --mk-dark: block;
+  --sun: #ffc857;
+  --glass: rgba(255, 255, 255, .72);
+  --f-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --f-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "DM Mono", ui-monospace, Menlo, monospace;
+  --gut: max(20px, env(safe-area-inset-left, 0px));
+  --gut-r: max(20px, env(safe-area-inset-right, 0px));
+  --max: 1280px;
+  --r: 22px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #061522; --bg-2: #0a2033; --surface: #0e2638; --ink: #e6f4fd; --muted: #93b4c9; --line: #1d3b52;
+    --sky: #5cc8ff; --accent: #5ea2ff; --accent-ink: #04121c; --sun: #ffd27a; --logo: #6aa9ff;
+    --mk-light: block; --mk-dark: none;
+    --glass: rgba(9, 30, 47, .72); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #061522; --bg-2: #0a2033; --surface: #0e2638; --ink: #e6f4fd; --muted: #93b4c9; --line: #1d3b52;
+  --sky: #5cc8ff; --accent: #5ea2ff; --accent-ink: #04121c; --sun: #ffd27a; --logo: #6aa9ff;
+  --mk-light: block; --mk-dark: none;
+  --glass: rgba(9, 30, 47, .72); color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 80; background: #0b2235; }
+a { color: inherit; }
+img { display: block; }
+:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--gut); padding-right: var(--gut-r); }
+.label { font-family: var(--f-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; margin: 0; line-height: 1.02; text-wrap: balance; font-variation-settings: "opsz" 144; }
+h2 { font-size: clamp(2.4rem, 5.6vw, 4.6rem); letter-spacing: -.02em; }
+h2 em, h1 em { font-style: italic; color: var(--accent); }
+h3 { font-size: 1.6rem; letter-spacing: -.01em; font-variation-settings: "opsz" 60; }
+p { margin: 0; }
+.ph { display: inline-block; font-family: var(--f-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border: 1px dashed var(--line); padding: 1px 7px; border-radius: 99px; vertical-align: middle; }
+
+.btn { display: inline-flex; align-items: center; gap: 10px; font: 700 15px/1 var(--f-body); text-decoration: none; padding: 15px 22px; border-radius: 99px; border: 1px solid transparent; cursor: pointer; transition: transform .25s, background .25s, color .25s, box-shadow .25s; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); box-shadow: 0 10px 30px -12px var(--accent); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 34px -12px var(--accent); }
+.btn-light { background: rgba(255,255,255,.16); color: #fff; border-color: rgba(255,255,255,.5); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.btn-light:hover { background: #fff; color: #0b2235; }
+.btn .arr { transition: transform .25s; }
+.btn:hover .arr { transform: translateX(4px); }
+
+/* ---------- nav ---------- */
+.nav { position: fixed; z-index: 70; top: env(safe-area-inset-top, 0px); left: 0; right: 0; transition: background .35s, box-shadow .35s, color .35s; color: #fff; }
+.nav .wrap { display: flex; align-items: center; gap: 28px; height: 72px; }
+.nav.solid { background: var(--glass); color: var(--ink); backdrop-filter: blur(16px) saturate(1.3); -webkit-backdrop-filter: blur(16px) saturate(1.3); box-shadow: 0 1px 0 var(--line); }
+.brand { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+.brand img { width: 36px; height: auto; flex: none; }
+.brand .mk-d { display: none; }
+.nav.solid .brand .mk-l { display: var(--mk-light); }
+.nav.solid .brand .mk-d { display: var(--mk-dark); }
+.brand .bt { display: grid; line-height: 1; gap: 5px; }
+.brand b { font: 800 1.3rem/1 var(--f-body); letter-spacing: .06em; }
+.nav.solid .brand b { color: var(--logo); }
+.brand small { font: 500 9.5px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; opacity: .85; }
+@media (max-width: 520px) { .brand small { display: none; } }
+.nav ul { display: flex; gap: 30px; list-style: none; margin: 0 0 0 auto; padding: 0; }
+.nav ul a { text-decoration: none; font-weight: 600; font-size: 14px; opacity: .85; }
+.nav ul a:hover { opacity: 1; }
+.nav .btn { padding: 11px 18px; font-size: 14px; }
+@media (max-width: 860px) { .nav ul { display: none; } .nav .btn { margin-left: auto; } }
+
+/* ---------- photo walk-through header ---------- */
+.walk { position: relative; height: 620vh; background: #0b2235; }
+.walk-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.scene { position: absolute; inset: 0; overflow: hidden; }
+.scene img { width: 100%; height: 100%; object-fit: cover; will-change: transform; transform-origin: 50% 50%; }
+.walk-stage::after { content: ""; position: absolute; inset: 0; z-index: 10; pointer-events: none;
+  background: linear-gradient(180deg, rgba(6,24,40,.55) 0%, rgba(6,24,40,0) 22%, rgba(6,24,40,0) 50%, rgba(6,24,40,.74) 100%); }
+.intro { position: absolute; z-index: 12; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: clamp(48px, 9vh, 110px); color: #fff; }
+.intro h1 { font-size: clamp(3.1rem, 8.6vw, 8.2rem); letter-spacing: -.035em; line-height: .94; max-width: 11ch; font-weight: 420; text-shadow: 0 2px 30px rgba(6,24,40,.35); }
+.intro h1 em { color: #bfe8ff; }
+.intro .lede { margin-top: 22px; font-size: clamp(1rem, 1.4vw, 1.18rem); max-width: 44ch; color: rgba(255,255,255,.9); }
+.intro .ctas { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
+.intro .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; color: #d6f0ff; }
+.intro .eyebrow i { width: 8px; height: 8px; border-radius: 50%; background: var(--sun); box-shadow: 0 0 0 5px rgba(255,200,87,.25); }
+
+.room { position: absolute; z-index: 12; left: var(--gut); bottom: clamp(36px, 7vh, 72px); width: min(460px, calc(100% - 40px)); color: #fff; opacity: 0; transform: translateY(16px); transition: opacity .6s, transform .6s; pointer-events: none; }
+.room.on { opacity: 1; transform: none; }
+.room .num { color: #bfe8ff; }
+.room h3 { font-size: clamp(2rem, 4.2vw, 3.4rem); margin: 8px 0 10px; font-weight: 350; letter-spacing: -.02em; }
+.room p { color: rgba(255,255,255,.88); max-width: 38ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.chips span { font-size: 12.5px; font-weight: 600; padding: 6px 12px; border-radius: 99px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.32); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+
+.rail { position: absolute; z-index: 12; right: var(--gut-r); top: 50%; transform: translateY(-50%); display: grid; gap: 4px; }
+.rail button { all: unset; cursor: pointer; display: flex; align-items: center; justify-content: flex-end; gap: 12px; padding: 6px 0; color: rgba(255,255,255,.62); font: 600 13px/1 var(--f-body); text-shadow: 0 1px 8px rgba(0,0,0,.35); }
+.rail button i { width: 22px; height: 2px; border-radius: 2px; background: rgba(255,255,255,.5); transition: width .4s, background .4s; }
+.rail button.on { color: #fff; }
+.rail button.on i { width: 46px; background: var(--sun); }
+.rail button:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.progress { position: absolute; z-index: 12; left: 0; bottom: 0; height: 3px; width: 100%; background: rgba(255,255,255,.15); }
+.progress b { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--sky), var(--sun)); }
+.cue { position: absolute; z-index: 12; right: var(--gut-r); bottom: clamp(48px, 9vh, 110px); color: rgba(255,255,255,.85); display: flex; align-items: center; gap: 12px; transition: opacity .4s; }
+.cue i { width: 26px; height: 42px; border: 1.5px solid rgba(255,255,255,.7); border-radius: 14px; position: relative; }
+.cue i::after { content: ""; position: absolute; left: 50%; top: 8px; width: 4px; height: 8px; margin-left: -2px; border-radius: 2px; background: #fff; animation: wheel 1.8s infinite; }
+@keyframes wheel { 0% { transform: translateY(0); opacity: 1; } 80% { transform: translateY(12px); opacity: 0; } 100% { opacity: 0; } }
+.credit-hero { position: absolute; z-index: 12; right: var(--gut-r); bottom: 12px; color: rgba(255,255,255,.6); font-size: 10px; }
+@media (max-width: 860px) {
+  .rail { top: 84px; transform: none; }
+  .rail button span { display: none; }
+  .cue { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .cue i::after { animation: none; } }
+
+/* ---------- shared section ---------- */
+section { padding-block: clamp(80px, 12vw, 160px); }
+.kicker { display: inline-flex; align-items: center; gap: 10px; color: var(--accent); margin-bottom: 22px; }
+.kicker::before { content: ""; width: 26px; height: 2px; border-radius: 2px; background: currentColor; }
+.head { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; align-items: end; margin-bottom: 60px; }
+.head p { color: var(--muted); max-width: 48ch; font-size: 1.05rem; }
+@media (max-width: 860px) { .head { grid-template-columns: 1fr; gap: 18px; } }
+.reveal { transition: transform 1s cubic-bezier(.2,.7,.2,1), opacity 1s; }
+.js .reveal.pre { transform: translateY(40px); opacity: .001; }
+@media (prefers-reduced-motion: reduce) { .js .reveal.pre { transform: none; opacity: 1; } }
+
+/* statement with inline photo pills */
+.statement p.big { font-family: var(--f-display); font-weight: 350; font-size: clamp(2rem, 4.6vw, 4.1rem); line-height: 1.16; letter-spacing: -.02em; max-width: 22ch; font-variation-settings: "opsz" 144; }
+.pill { display: inline-block; vertical-align: middle; width: 2.3em; height: 1.05em; border-radius: 99px; overflow: hidden; margin: 0 .12em; transform: translateY(-.06em); box-shadow: 0 6px 18px -8px rgba(6,24,40,.5); }
+.pill img { width: 100%; height: 100%; object-fit: cover; }
+.statement em { font-style: italic; color: var(--accent); }
+.figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 72px; border-top: 1px solid var(--line); padding-top: 32px; }
+.figures div { display: grid; gap: 4px; }
+.figures b { font-family: var(--f-display); font-weight: 400; font-size: clamp(2.4rem, 4.4vw, 3.6rem); line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.figures b small { font-size: .45em; color: var(--accent); margin-left: 3px; }
+.figures span { color: var(--muted); font-size: 14px; }
+@media (max-width: 760px) { .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 32px; } }
+
+/* services: expanding photo panels */
+.services { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%); }
+.panels { display: flex; gap: 14px; height: clamp(440px, 62vh, 600px); }
+.panel { position: relative; flex: 1; min-width: 0; border-radius: var(--r); overflow: hidden; cursor: pointer; transition: flex .8s cubic-bezier(.2,.7,.2,1); outline: none; }
+.panel.open { flex: 3.2; }
+.panel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+.panel:hover img, .panel.open img { transform: scale(1.04); }
+.panel::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,24,40,0) 35%, rgba(6,24,40,.82) 100%); }
+.panel .txt { position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; padding: 26px; color: #fff; display: grid; gap: 8px; }
+.panel .n { color: #bfe8ff; }
+.panel h3 { font-size: clamp(1.4rem, 2.2vw, 2rem); font-weight: 400; }
+.panel p { color: rgba(255,255,255,.88); font-size: 15px; max-width: 40ch; max-height: 0; opacity: 0; overflow: hidden; transition: max-height .6s, opacity .5s; }
+.panel.open p { max-height: 160px; opacity: 1; }
+.panel:focus-visible { box-shadow: 0 0 0 3px var(--sky); }
+@media (min-width: 861px) { .panel:not(.open) h3 { writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; align-self: end; } }
+@media (max-width: 860px) {
+  .panels { flex-direction: column; height: auto; }
+  .panel, .panel.open { flex: none; height: 300px; }
+  .panel p { max-height: none; opacity: 1; }
+}
+
+/* projects bento */
+.bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: 120px; gap: 16px; }
+.tile { position: relative; border-radius: var(--r); overflow: hidden; background: var(--bg-2); min-width: 0; }
+.tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.1s cubic-bezier(.2,.7,.2,1); }
+.tile:hover img { transform: scale(1.06); }
+.tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,24,40,0) 50%, rgba(6,24,40,.75) 100%); }
+.tile .cap { position: absolute; z-index: 1; left: 20px; right: 20px; bottom: 18px; color: #fff; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+.tile .cap h3 { font-size: clamp(1.2rem, 1.8vw, 1.65rem); font-weight: 400; }
+.tile .cap .label { font-size: 10.5px; color: #cdebfb; }
+.tile .tag { position: absolute; z-index: 1; top: 16px; left: 16px; background: var(--glass); color: var(--ink); font: 600 12px/1 var(--f-body); padding: 8px 12px; border-radius: 99px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.t1 { grid-column: span 7; grid-row: span 4; } .t2 { grid-column: span 5; grid-row: span 2; } .t3 { grid-column: span 5; grid-row: span 2; }
+.t4 { grid-column: span 4; grid-row: span 3; } .t5 { grid-column: span 4; grid-row: span 3; } .t6 { grid-column: span 4; grid-row: span 3; }
+@media (max-width: 860px) { .bento { grid-template-columns: 1fr; grid-auto-rows: 240px; } .bento .tile { grid-column: auto; grid-row: auto; } }
+
+/* process: curved route */
+.process { background: var(--bg-2); }
+.route { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+.route svg { position: absolute; left: 0; top: 0; width: 100%; height: 120px; overflow: visible; }
+.route svg path { fill: none; stroke: var(--sky); stroke-width: 2; stroke-dasharray: 6 8; vector-effect: non-scaling-stroke; }
+.stop { position: relative; padding-top: 120px; display: grid; gap: 10px; align-content: start; }
+.stop .dot { position: absolute; top: var(--y); left: 0; width: 46px; height: 46px; border-radius: 50%; background: var(--surface); border: 2px solid var(--sky); display: grid; place-items: center; font-family: var(--f-display); font-size: 1.15rem; color: var(--accent); box-shadow: 0 10px 24px -14px var(--accent); }
+.stop .when { color: var(--accent); }
+.stop h3 { font-size: 1.55rem; }
+.stop p { color: var(--muted); font-size: 15px; }
+@media (max-width: 860px) { .route { grid-template-columns: 1fr 1fr; row-gap: 28px; } .route svg { display: none; } .stop { padding-top: 64px; } .stop .dot { top: 0; } }
+@media (max-width: 520px) { .route { grid-template-columns: 1fr; } }
+
+/* about */
+.about-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 90px); align-items: center; }
+.portrait { position: relative; border-radius: 220px 220px var(--r) var(--r); overflow: hidden; aspect-ratio: 9 / 11; max-width: 100%; }
+.portrait img { width: 100%; height: 100%; object-fit: cover; }
+.badge { position: absolute; right: 18px; bottom: 18px; background: var(--glass); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 18px; padding: 14px 18px; display: grid; gap: 2px; color: var(--ink); }
+.badge b { font-family: var(--f-display); font-weight: 400; font-size: 2rem; line-height: 1; }
+.badge span { font-size: 12.5px; color: var(--muted); }
+.about-copy blockquote { margin: 0; font-family: var(--f-display); font-weight: 350; font-style: italic; font-size: clamp(1.6rem, 3vw, 2.5rem); line-height: 1.2; letter-spacing: -.01em; }
+.about-copy .who { margin-top: 20px; color: var(--muted); }
+.values { margin-top: 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.values div { background: var(--surface); border-radius: 18px; padding: 20px; display: grid; gap: 6px; border: 1px solid var(--line); align-content: start; }
+.values b { font-weight: 700; }
+.values span { color: var(--muted); font-size: 14px; }
+@media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } .portrait { max-width: 460px; } .values { grid-template-columns: 1fr; } }
+
+/* contact */
+.contact { padding-block: clamp(40px, 7vw, 100px); }
+.contact-card { position: relative; border-radius: 34px; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); background: #0b2235; }
+.contact-card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .55; }
+.contact-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, rgba(6,32,56,.93) 0%, rgba(10,124,194,.55) 100%); }
+.contact-left { position: relative; z-index: 1; padding: clamp(28px, 5vw, 64px); color: #fff; display: grid; align-content: space-between; gap: 40px; }
+.contact-left h2 { color: #fff; }
+.contact-left h2 em { color: #bfe8ff; }
+.contact-left .lead { margin-top: 18px; color: rgba(255,255,255,.88); max-width: 40ch; }
+.reach { display: grid; gap: 10px; }
+.reach div { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 10px; align-items: baseline; }
+.reach .label { color: #9fdcff; font-size: 11px; }
+.reach .v { overflow-wrap: anywhere; }
+.reach .ph { color: #cfe9f8; border-color: rgba(255,255,255,.35); }
+form { position: relative; z-index: 1; margin: clamp(12px, 2vw, 22px); background: var(--surface); border-radius: 24px; padding: clamp(22px, 3.5vw, 38px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-content: start; }
+form h3 { grid-column: 1 / -1; font-size: 1.7rem; }
+.field { display: grid; gap: 6px; min-width: 0; }
+.field.full { grid-column: 1 / -1; }
+label { font-size: 13px; font-weight: 600; color: var(--muted); }
+input, select, textarea { font: 15px/1.4 var(--f-body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 13px 14px; width: 100%; transition: border-color .2s, box-shadow .2s; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--sky); box-shadow: 0 0 0 4px rgba(56, 182, 240, .22); }
+textarea { min-height: 110px; resize: vertical; }
+.types { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; border: 0; padding: 0; margin: 0; min-width: 0; }
+.types legend { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 8px; padding: 0; }
+.types input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.types label { cursor: pointer; padding: 9px 14px; border-radius: 99px; border: 1px solid var(--line); color: var(--ink); font-size: 13.5px; transition: background .2s, color .2s, border-color .2s; }
+.types input:checked + label { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.types input:focus-visible + label { outline: 2px solid var(--sky); outline-offset: 2px; }
+.form-foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; }
+.form-foot small { color: var(--muted); }
+#formMsg { grid-column: 1 / -1; font-size: 14px; padding: 12px 14px; border-radius: 12px; background: var(--bg-2); }
+@media (max-width: 900px) { .contact-card { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { form { grid-template-columns: 1fr; } }
+
+/* footer */
+footer { padding-block: 30px 40px; }
+.wordmark { font-family: var(--f-display); font-weight: 300; font-size: clamp(4rem, 17vw, 15rem); line-height: .9; letter-spacing: -.05em; color: transparent; -webkit-text-stroke: 1px var(--sky); text-align: center; user-select: none; font-variation-settings: "opsz" 144; overflow: hidden; }
+.foot-logo { display: flex; justify-content: center; margin-bottom: 10px; }
+.foot-logo img { width: 220px; height: auto; }
+.foot-logo .lg-d { display: var(--mk-dark); }
+.foot-logo .lg-l { display: var(--mk-light); }
+.foot { display: flex; flex-wrap: wrap; gap: 12px 30px; justify-content: space-between; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 22px; margin-top: 18px; }
+</style>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Pruthvi, home">
+      <img class="mk-l" src="brand/pruthvi-mark-light-tight.png" alt="" width="36" height="39">
+      <img class="mk-d" src="brand/pruthvi-mark-tight.png" alt="" width="36" height="39">
+      <span class="bt"><b>PRUTHVI</b><small>Consulting engineers &amp; Civil contractors</small></span>
+    </a>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a class="btn btn-primary" href="#contact">Get a quote <span class="arr">→</span></a>
+  </div>
+</header>
+
+<div class="walk" id="top">
+  <div class="walk-stage" id="stage">
+    <div class="scene" data-f="50 64"><img src="img/h1.webp" alt="White two-storey villa with a pool under a blue sky" fetchpriority="high"></div>
+    <div class="scene" data-f="58 46"><img src="img/h2.webp" alt="Bright living room with tall windows and soft sofas"></div>
+    <div class="scene" data-f="40 42"><img src="img/h3.webp" alt="White kitchen with a long island and pendant lights"></div>
+    <div class="scene" data-f="72 46"><img src="img/h4.webp" alt="Calm bedroom with a large bed and warm lamps"></div>
+    <div class="scene" data-f="80 32"><img src="img/h5.webp" alt="Light bathroom with a round mirror and plants"></div>
+    <div class="scene" data-f="50 50"><img src="img/h6.webp" alt="Timber family home lit up at dusk"></div>
+
+    <div class="intro wrap" id="intro">
+      <span class="eyebrow label"><i></i>Consulting engineers · Civil contractors</span>
+      <h1>Homes that feel like <em>open sky.</em></h1>
+      <p class="lede">Pruthvi engineers, designs and builds light-filled homes and buildings, from the first soil test to the day you get the keys. Scroll to walk inside one.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#contact">Start your home <span class="arr">→</span></a>
+        <a class="btn btn-light" href="#projects">See our homes</a>
+      </div>
+    </div>
+
+    <div class="room" data-i="1"><span class="label num">01 · Living</span><h3>Light from three sides</h3><p>Full-height glazing pulls the garden indoors and keeps the room bright until sunset.</p><div class="chips"><span>Oak floors</span><span>3.2 m ceilings</span><span>48 m²</span></div></div>
+    <div class="room" data-i="2"><span class="label num">02 · Kitchen</span><h3>Made for gathering</h3><p>A five-metre island, hidden pantry and appliances built flush into the joinery.</p><div class="chips"><span>Quartz island</span><span>Walk-in pantry</span><span>42 m²</span></div></div>
+    <div class="room" data-i="3"><span class="label num">03 · Bedroom</span><h3>Quiet by design</h3><p>Acoustic glazing and insulated walls so mornings start when you want them to.</p><div class="chips"><span>Walk-in robe</span><span>Acoustic glazing</span><span>36 m²</span></div></div>
+    <div class="room" data-i="4"><span class="label num">04 · Bathroom</span><h3>A daily retreat</h3><p>Stone, brass and plants, with heated floors and a window placed for privacy and light.</p><div class="chips"><span>Heated floor</span><span>Walk-in shower</span><span>14 m²</span></div></div>
+    <div class="room" data-i="5"><span class="label num">05 · Every home</span><h3>Built to come home to</h3><p>Render, timber or stone, every Pruthvi home is built to the same standard and handed over on the date we agree.</p><div class="chips"><span>Fixed price</span><span>10-year warranty</span><span>On-time handover</span></div></div>
+
+    <div class="rail" id="rail" aria-label="Rooms">
+      <button data-i="0" class="on"><span>Arrival</span><i></i></button>
+      <button data-i="1"><span>Living</span><i></i></button>
+      <button data-i="2"><span>Kitchen</span><i></i></button>
+      <button data-i="3"><span>Bedroom</span><i></i></button>
+      <button data-i="4"><span>Bathroom</span><i></i></button>
+      <button data-i="5"><span>Home</span><i></i></button>
+    </div>
+    <div class="cue label" id="cue">Scroll to step inside<i></i></div>
+    <div class="progress"><b id="bar"></b></div>
+    <span class="credit-hero label">Stand-in photos · Unsplash</span>
+  </div>
+</div>
+
+<main>
+  <section class="statement">
+    <div class="wrap">
+      <span class="kicker label">Pruthvi · Consulting engineers &amp; Civil contractors</span>
+      <p class="big reveal">We engineer <span class="pill"><img src="img/s1.webp" alt=""></span> and build <span class="pill"><img src="img/s2.webp" alt=""></span> homes that let the <em>light</em> <span class="pill"><img src="img/h2.webp" alt=""></span> in, and keep the weather out.</p>
+      <div class="figures reveal">
+        <div><b data-count="24">0</b><span>Years building homes</span></div>
+        <div><b><span data-count="310">0</span><small>+</small></b><span>Homes delivered</span></div>
+        <div><b><span data-count="96">0</span><small>%</small></b><span>Handed over on time</span></div>
+        <div><b><span data-count="4.9" data-dec="1">0</span><small>★</small></b><span>Average client rating</span></div>
+      </div>
+      <p class="ph" style="margin-top:18px">Figures: placeholder</p>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><span class="kicker label">What we do</span><h2>One team from <em>sketch</em> to keys.</h2></div>
+        <p>Choose the whole journey or just the part you need. Tap a card to see what's included. <span class="ph">Services: placeholder</span></p>
+      </div>
+      <div class="panels reveal" id="panels">
+        <div class="panel open" tabindex="0" role="button" aria-expanded="true"><img src="img/s1.webp" alt="Blueprint drawings of a building elevation" loading="lazy"><div class="txt"><span class="label n">01</span><h3>Engineering &amp; design</h3><p>Structural design, soil reports, drawings, approvals and a detailed estimate, prepared by our in-house engineers.</p></div></div>
+        <div class="panel" tabindex="0" role="button" aria-expanded="false"><img src="img/s2.webp" alt="Timber wall frames against a blue sky" loading="lazy"><div class="txt"><span class="label n">02</span><h3>Construction</h3><p>Homes, apartments and commercial buildings, built by our own crews with a site engineer you can call any day.</p></div></div>
+        <div class="panel" tabindex="0" role="button" aria-expanded="false"><img src="img/s3.webp" alt="Kitchen being renovated with new cabinets" loading="lazy"><div class="txt"><span class="label n">03</span><h3>Renovations &amp; extensions</h3><p>Kitchens, bathrooms, second storeys and open-plan rebuilds, staged so you can keep living at home.</p></div></div>
+        <div class="panel" tabindex="0" role="button" aria-expanded="false"><img src="img/s4.webp" alt="Pool beside a modern home with glass doors" loading="lazy"><div class="txt"><span class="label n">04</span><h3>Pools &amp; outdoor living</h3><p>Pools, decks, landscaping and outdoor kitchens designed together with the house, not added later.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><span class="kicker label">Selected homes</span><h2>Recently <em>handed over.</em></h2></div>
+        <p>A few of the families who moved in this year. Every home here was designed and built by one Pruthvi team. <span class="ph">Projects: placeholder</span></p>
+      </div>
+      <div class="bento">
+        <article class="tile t1 reveal"><img src="img/p1.webp" alt="White modern villa with infinity pool" loading="lazy"><span class="tag">Design &amp; build</span><div class="cap"><div><span class="label">Coastal ridge · 2025</span><h3>Villa Celeste</h3></div><span class="label">412 m²</span></div></article>
+        <article class="tile t2 reveal"><img src="img/p2.webp" alt="Long single-level home with pool terrace" loading="lazy"><div class="cap"><div><span class="label">Lakeside · 2024</span><h3>The Long House</h3></div><span class="label">286 m²</span></div></article>
+        <article class="tile t3 reveal"><img src="img/p5.webp" alt="Two-storey home with timber soffit and pool" loading="lazy"><div class="cap"><div><span class="label">Hillcrest · 2025</span><h3>Cedar Court</h3></div><span class="label">338 m²</span></div></article>
+        <article class="tile t4 reveal"><img src="img/p3.webp" alt="White home with pool and tropical plants" loading="lazy"><div class="cap"><div><span class="label">Palm Grove · 2023</span><h3>Casa Blanca</h3></div><span class="label">240 m²</span></div></article>
+        <article class="tile t5 reveal"><img src="img/p4.webp" alt="Low modern home with lawn and pool" loading="lazy"><div class="cap"><div><span class="label">Green Valley · 2024</span><h3>Meadow House</h3></div><span class="label">265 m²</span></div></article>
+        <article class="tile t6 reveal"><img src="img/p6.webp" alt="Row of new family houses with gables" loading="lazy"><span class="tag">12 homes</span><div class="cap"><div><span class="label">Maple Row · 2024</span><h3>Maple Row</h3></div><span class="label">1,920 m²</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><span class="kicker label">How it works</span><h2>Four steps to your <em>front door.</em></h2></div>
+        <p>A fixed price, a dated programme and a photo update every Friday. If anything moves, you hear it from us first.</p>
+      </div>
+      <div class="route">
+        <svg viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path d="M23 69 C 120 10, 200 10, 270 42 S 420 100, 523 81 S 690 0, 773 35 S 930 80, 990 50"/></svg>
+        <div class="stop reveal" style="--y:46px"><span class="dot">1</span><span class="label when">Week 1</span><h3>Meet on site</h3><p>We walk your land with you, listen to how you live and give an honest first budget.</p></div>
+        <div class="stop reveal" style="--y:18px"><span class="dot">2</span><span class="label when">Weeks 2–10</span><h3>Design &amp; approvals</h3><p>Drawings, 3D views, engineering and permits, ending in one fixed price.</p></div>
+        <div class="stop reveal" style="--y:58px"><span class="dot">3</span><span class="label when">6–11 months</span><h3>Build</h3><p>Your own site manager, weekly photo reports and site visits whenever you like.</p></div>
+        <div class="stop reveal" style="--y:12px"><span class="dot">4</span><span class="label when">Handover</span><h3>Keys &amp; care</h3><p>Final walkthrough, keys and manuals, then ten years of structural warranty.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="portrait reveal"><img src="img/about.webp" alt="Builder working on a timber frame against a blue sky" loading="lazy"><div class="badge"><b>24 yrs</b><span>building homes together</span></div></div>
+      <div class="about-copy reveal">
+        <span class="kicker label">About us</span>
+        <blockquote>“We still stand on every slab before it's poured. The people who price your home are the people who build it.”</blockquote>
+        <p class="who">Founder, Pruthvi <span class="ph">name: placeholder</span></p>
+        <div class="values">
+          <div><b>Fixed prices</b><span>No surprise variations once we sign.</span></div>
+          <div><b>Safe sites</b><span>Every crew home safe, every day.</span></div>
+          <div><b>Built to last</b><span>10-year structural warranty.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="contact-card reveal">
+        <img src="img/contact.webp" alt="" loading="lazy">
+        <div class="contact-left">
+          <div>
+            <span class="kicker label" style="color:#9fdcff">Start your home</span>
+            <h2>Let's build something <em>bright.</em></h2>
+            <p class="lead">Tell us a little about your plans and we'll call within two working days with ideas and a first budget range.</p>
+          </div>
+          <div class="reach">
+            <div><span class="label">Call</span><span class="v">+91 00000 00000 <span class="ph">placeholder</span></span></div>
+            <div><span class="label">Email</span><span class="v">hello@pruthvi.example <span class="ph">placeholder</span></span></div>
+            <div><span class="label">Visit</span><span class="v">Your office address <span class="ph">placeholder</span></span></div>
+          </div>
+        </div>
+        <form id="quote" novalidate>
+          <h3>Request a quote</h3>
+          <fieldset class="types">
+            <legend>What are you planning?</legend>
+            <input type="radio" name="type" id="t-new" value="New home" checked><label for="t-new">New home</label>
+            <input type="radio" name="type" id="t-reno" value="Renovation"><label for="t-reno">Renovation</label>
+            <input type="radio" name="type" id="t-ext" value="Extension"><label for="t-ext">Extension</label>
+            <input type="radio" name="type" id="t-pool" value="Pool &amp; outdoor"><label for="t-pool">Pool &amp; outdoor</label>
+          </fieldset>
+          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" placeholder="Alex Morgan"></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="alex@email.com"></div>
+          <div class="field"><label for="f-budget">Budget</label><select id="f-budget" name="budget"><option>Under ₹50 lakh</option><option selected>₹50 lakh – ₹1 crore</option><option>₹1 – 3 crore</option><option>Over ₹3 crore</option><option>Not sure yet</option></select></div>
+          <div class="field"><label for="f-when">Start</label><select id="f-when" name="when"><option>As soon as possible</option><option selected>In 3–6 months</option><option>Next year</option><option>Just exploring</option></select></div>
+          <div class="field full"><label for="f-msg">Tell us about it</label><textarea id="f-msg" name="message" placeholder="Where is the site, how many bedrooms, anything you've fallen in love with?"></textarea></div>
+          <div id="formMsg" hidden></div>
+          <div class="form-foot"><small>We reply within two working days.</small><button class="btn btn-primary" type="submit">Send request <span class="arr">→</span></button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-logo"><img class="lg-d" src="brand/pruthvi-logo.png" alt="Pruthvi, Consulting engineers and Civil contractors" width="220" height="200" loading="lazy"><img class="lg-l" src="brand/pruthvi-logo-light.png" alt="Pruthvi, Consulting engineers and Civil contractors" width="220" height="200" loading="lazy"></div>
+    <div class="wordmark" aria-hidden="true">Pruthvi</div>
+    <div class="foot"><span>© 2026 Pruthvi Consulting Engineers &amp; Civil Contractors</span><span>Photos from Unsplash, used as stand-ins</span></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.documentElement.classList.add('js');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ss = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+  const nav = document.getElementById('nav'), walk = document.querySelector('.walk');
+
+  /* ---------- photo walk-through: each room opens from the doorway of the last ---------- */
+  const scenes = [...document.querySelectorAll('.scene')].map(el => { const [fx, fy] = el.dataset.f.split(' ').map(Number); return { el, img: el.querySelector('img'), fx, fy }; });
+  const rooms = [...document.querySelectorAll('.room')];
+  const railBtns = [...document.querySelectorAll('#rail button')];
+  const intro = document.getElementById('intro'), cue = document.getElementById('cue'), bar = document.getElementById('bar');
+  const N = scenes.length;
+  scenes.forEach((s, i) => { s.el.style.zIndex = i + 1; s.img.style.transformOrigin = `${s.fx}% ${s.fy}%`; });
+
+  function progress() { const r = walk.getBoundingClientRect(); const span = r.height - innerHeight; return Math.min(1, Math.max(0, -r.top / (span || 1))); }
+  let active = -1;
+  function draw(p) {
+    const x = p * (N - 1);
+    scenes.forEach((s, i) => {
+      const d = x - i;
+      if (d < -.5 || d > 1.02) { s.el.style.visibility = 'hidden'; return; }
+      s.el.style.visibility = 'visible';
+      if (d < 0) {
+        const k = ss(-.5, 0, d), prev = scenes[i - 1];
+        s.el.style.clipPath = `circle(${(k * 120).toFixed(2)}% at ${prev.fx}% ${prev.fy}%)`;
+        s.img.style.transform = reduce ? 'none' : `scale(${(1.22 - .22 * k).toFixed(4)})`;
+      } else {
+        s.el.style.clipPath = 'none';
+        s.img.style.transform = reduce ? 'none' : `scale(${(1 + Math.min(d, 1) * .42).toFixed(4)})`;
+      }
+    });
+    const idx = Math.min(N - 1, Math.floor(x + .25));
+    if (idx !== active) {
+      active = idx;
+      rooms.forEach(r => r.classList.toggle('on', +r.dataset.i === idx));
+      railBtns.forEach(b => b.classList.toggle('on', +b.dataset.i === idx));
+    }
+    const f = 1 - ss(0, .07, p);
+    intro.style.opacity = f; intro.style.transform = `translateY(${(1 - f) * -30}px)`; intro.style.visibility = f < .02 ? 'hidden' : 'visible';
+    cue.style.opacity = p > .02 ? 0 : 1;
+    bar.style.width = (p * 100).toFixed(2) + '%';
+    nav.classList.toggle('solid', walk.getBoundingClientRect().bottom < 80);
+  }
+  railBtns.forEach(b => b.addEventListener('click', () => {
+    const i = +b.dataset.i, span = walk.offsetHeight - innerHeight;
+    scrollTo({ top: walk.offsetTop + (i / (N - 1)) * span, behavior: reduce ? 'auto' : 'smooth' });
+  }));
+
+  let sp = progress(), last = performance.now();
+  function tick(now) {
+    const dt = Math.min(.1, (now - last) / 1000); last = now;
+    const p = progress();
+    sp += (p - sp) * (reduce ? 1 : 1 - Math.exp(-dt * 7));
+    if (Math.abs(p - sp) < .0004) sp = p;
+    draw(sp);
+    requestAnimationFrame(tick);
+  }
+  draw(sp); requestAnimationFrame(tick);
+
+  /* ---------- services panels ---------- */
+  const panels = [...document.querySelectorAll('.panel')];
+  function openPanel(el) { panels.forEach(p => { const on = p === el; p.classList.toggle('open', on); p.setAttribute('aria-expanded', String(on)); }); }
+  panels.forEach(p => {
+    p.addEventListener('click', () => openPanel(p));
+    p.addEventListener('mouseenter', () => { if (matchMedia('(hover: hover)').matches) openPanel(p); });
+    p.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPanel(p); } });
+  });
+
+  /* ---------- reveal + counters ---------- */
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduce) {
+    reveals.forEach(el => { if (el.getBoundingClientRect().top > innerHeight) el.classList.add('pre'); });
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('pre'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(el => io.observe(el));
+  }
+  const fmt = (v, d) => d ? v.toFixed(d) : Math.round(v).toLocaleString('en-US');
+  const counters = document.querySelectorAll('[data-count]');
+  if ('IntersectionObserver' in window && !reduce) {
+    const cio = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return; cio.unobserve(e.target);
+      const el = e.target, to = +el.dataset.count, d = +el.dataset.dec || 0, t0 = performance.now();
+      (function step(t) { const k = Math.min(1, (t - t0) / 1600), ek = 1 - Math.pow(1 - k, 3); el.textContent = fmt(to * ek, d); if (k < 1) requestAnimationFrame(step); })(t0);
+    }), { threshold: .4 });
+    counters.forEach(el => cio.observe(el));
+  } else counters.forEach(el => { el.textContent = fmt(+el.dataset.count, +el.dataset.dec || 0); });
+
+  /* ---------- form ---------- */
+  const form = document.getElementById('quote'), msg = document.getElementById('formMsg');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = form.elements.name.value.trim(), email = form.elements.email.value.trim();
+    if (!name || !/^\S+@\S+\.\S+$/.test(email)) { msg.textContent = 'Add your name and a valid email so we can reach you.'; msg.hidden = false; return; }
+    msg.textContent = `Thanks, ${name.split(' ')[0]}. This is a preview, so nothing was sent. On the live site your request goes straight to our team.`;
+    msg.hidden = false;
+  });
+})();
+</script>
